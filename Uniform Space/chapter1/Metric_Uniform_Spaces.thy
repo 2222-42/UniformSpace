@@ -15,4 +15,9 @@ class psuedometic =
 class metric = psuedometic +
   assumes dist_0_if_not_eq : "x \<in> \<UU> \<Longrightarrow> y \<in> \<UU> \<Longrightarrow> x \<noteq> y \<Longrightarrow> dist x y > 0"
 
+(*TODO: solve *)
+definition uniform_continuous :: "('a::metric \<Rightarrow> 'b::metric) \<Rightarrow> bool"
+  where "uniform_continuous f = (\<forall>e>0::real. \<exists>d>0::real. \<forall> x. \<forall> x'. (dist x x' < d \<longrightarrow> dist f(x) f(x') < e))"
+
+
 end
