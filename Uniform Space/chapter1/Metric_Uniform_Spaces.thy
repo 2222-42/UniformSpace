@@ -1,5 +1,5 @@
 theory Metric_Uniform_Spaces
-  imports Main "~~/src/HOL/Library/Float"
+  imports Main "~~/src/HOL/Library/Float" (*"~~/src/HOL/HOLCF/Pcpo"*)
 begin
 
 
@@ -18,5 +18,23 @@ class metric = psuedometic +
 definition uniform_continuous :: "('a::metric \<Rightarrow> 'b::metric) \<Rightarrow> bool"
   where "uniform_continuous f = (\<forall>e>0::real. \<exists>d>0::real. \<forall> x. \<forall> x'. (dist x x' < d \<longrightarrow> dist (f(x)) (f(x')) < e))"
 
+(*TODO: prove "if unifrom_continuous then continuous"
+definition cont :: "('a::cpo \<Rightarrow> 'b::cpo) \<Rightarrow> bool"
+  where "cont f = (\<forall>Y. chain Y \<longrightarrow> range (\<lambda>i. f (Y i)) <<| f (\<Squnion>i. Y i))"
+*)
+
+(*TODO: define covering space
+definition covering :: "('i \<Rightarrow> 'a::metric) set  \<Rightarrow> ('a::metric) \<Rightarrow> bool" 
+  where "covering U X \<longleftrightarrow> (X \<subseteq> (\<Union> n::'i. U n))"
+Operator:  (\<subseteq>) :: ??'a::type set \<Rightarrow> ??'a::type set \<Rightarrow> bool
+Operand:   X::'a::metric :: 'a::metric
+*)
+
+(*
+definition covering :: "('i \<Rightarrow> 'a::metric) set  \<Rightarrow> ('a::metric) \<Rightarrow> bool" 
+  where "covering U X \<longleftrightarrow> (\<forall> x \<in> X. \<exists> n::'i. x \<in> (U n))"
+Operator:  Ball :: ??'a::type set \<Rightarrow> (??'a::type \<Rightarrow> bool) \<Rightarrow> bool
+Operand:   X::'a::metric :: 'a::metric
+*)
 
 end
