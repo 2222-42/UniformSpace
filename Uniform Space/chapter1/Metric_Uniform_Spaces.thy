@@ -37,4 +37,13 @@ Operator:  Ball :: ??'a::type set \<Rightarrow> (??'a::type \<Rightarrow> bool) 
 Operand:   X::'a::metric :: 'a::metric
 *)
 
+(*TODO: 
+- define uniform_covering
+- prove the relation between uniform_covering and neighborhood
+- prove the relation between uniformly continuous functoin and unifrom covering
+*)
+
+(*TODO: define uniform_equivalence
+*)
+
 end
